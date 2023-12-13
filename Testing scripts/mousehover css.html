@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Just for fun!</title>
+        <style>
+            /*rotate the button onmouseover*/
+            #rotateButton:hover {
+                transform: rotate(45deg);
+            }
+            /*scale the button onmouseover*/
+            #scaleButton:hover {
+                transform: scale(200%);
+            }
+            /*scale and rotate the button onmouseover*/
+            #allInOne:hover {
+                transform: scale(150%) rotate(-60deg);
+            }
+        </style>
+        <script>
+            //random color picker function
+            function get_random_color(list) {
+                return list[Math.floor(Math.random() * list.length)];
+            }
+            //random color display function
+            function headerColorChange() {
+                var headerColor = document.getElementById("header");
+                headerColor.style.color = get_random_color([
+                    "yellow",
+                    "blue",
+                    "green",
+                    "red",
+                ]);
+            }
+        </script>
+    </head>
+    <body>
+        <!--header-->
+        <h1 id="header" onmouseover="headerColorChange()">Everything is Fun!</h1>
+        <!--buttons-->
+        <button id="rotateButton" onmouseover="rotater()">rotate</button
+        ><button id="scaleButton">scale</button>
+        <button id="allInOne">all-in-one</button>
+    </body>
+</html>

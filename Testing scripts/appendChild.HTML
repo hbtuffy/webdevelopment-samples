@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var bookCount = 0
+        function addOrder(){
+            var bookTitle = document.getElementById("bookTitle").value;
+            var productCode = document.getElementById("productCode").value;
+            var quantity = Number(document.getElementById("quantity").value);
+
+            var orderInfo= `${productCode}: ${bookTitle} x ${quantity}`
+
+            var li = document.createElement("li");
+            var orderText = document.createTextNode(orderInfo);
+            li.appendChild(orderText);
+
+
+            var orderUL = document.getElementById("bookList");
+            orderUL.appendChild(li);
+
+            bookCount += quantity
+
+            var bookCountSpan = document.getElementById("totalTextArea");
+            bookCountSpan.innerHTML = `Total number of books ordered: ${bookCount}`
+        }
+    </script>
+</head>
+<body>
+    Enter book title: <input type="text" id="bookTitle"/><br/>
+    Enter product code: <input type="text" id="productCode"><br/>
+    Enter quantity: <input type="text" id="quantity" ><br/>
+    <button onClick="addOrder()">Add to order</button><br/><br/>
+    <ul id="bookList"></ul><br/><br/>
+    <span id="totalTextArea"></span> 
+
+</body>
+</html>

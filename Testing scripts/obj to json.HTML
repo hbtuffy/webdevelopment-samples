@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title></title>
+        <style></style>
+        <script>
+            function getJSON(){
+                var subjectCode= document.getElementById("subjectCode").value;
+                var subjectTitle = document.getElementById("subjectTitle").value;
+                var subjectCP = Number(document.getElementById("subjectCP").value);
+                var subjectCore = document.getElementById("subjectCore").checked;
+                var studentObj={}
+                studentObj.code = subjectCode;
+                studentObj.title = subjectTitle;
+                studentObj.cp = subjectCP;
+                studentObj.coreFlag = subjectCore;
+
+                var studentJSON = JSON.stringify(studentObj,null,2);
+                
+                var textarea = document.getElementById("textDisplayArea");
+                textarea.value=studentJSON
+
+            }
+        </script>
+    </head>
+    <body>
+        Subject code: <input type="text" id="subjectCode"/> <br/>
+        Subject title: <input type="text" id="subjectTitle"/><br/>
+        Subject credit point: <input type="text" id="subjectCP"/><br/>
+        Core subject: <input type="checkbox" id="subjectCore" /><br/>
+        <br/>
+        <button onClick="getJSON()">View JSON</button><br/>
+        <textarea rows="10" cols=30 id="textDisplayArea"></textarea>
+    </body>
+</html>

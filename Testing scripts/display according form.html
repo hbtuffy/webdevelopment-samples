@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>q2</title>
+
+		<script>
+			//define the elements because you will use in different places
+			var name = [];
+			var sport = [];
+			var weekDay = [];
+			//funtion for the button
+			function createSentence() {
+				getName();
+				getSport();
+				getWeekDay();
+				displayFunction();
+			}
+			//get the name value
+			function getName() {
+				var input1 = document.getElementById("enterName");
+				name = input1.value;
+			}
+			//get the sport value
+			function getSport() {
+				var input2 = document.getElementById("enterSport");
+				sport = input2.value;
+			}
+			//get the weekday value
+			function getWeekDay() {
+				var input3 = document.getElementById("weekDay");
+				weekDay = input3.value;
+			}
+			//organize how to display elements
+			function displayFunction() {
+				var nameDisplay1 = document.getElementById("name1");
+				nameDisplay1.innerHTML = "1. MY NAME IS " + name.toUpperCase();
+
+				var sportDisplay1 = document.getElementById("sport1");
+				sportDisplay1.innerHTML = "2. i like " + sport.toLowerCase();
+
+				var lengthDisplay = document.getElementById("length");
+				lengthDisplay.innerHTML =
+					"3. Your name has " + name.length + " of characters";
+
+				var msg = document.getElementById("sentence");
+				msg.innerHTML = "4. " + name + " is having " + sport + " on " + weekDay;
+			}
+		</script>
+	</head>
+	<body>
+		<!-- collect the inputs-->
+		Enter name:<br /><input type="text" id="enterName" />
+		<br />
+		Enter sport:<br /><input type="text" id="enterSport" />
+		<br />
+		Enter day in the week:<br /><input type="text" id="weekDay" /> <br /><br />
+		<button onclick="createSentence()">Create sentence</button>
+
+		<br /><br />
+		<!-- display the sentences-->
+		<span id="name1"></span><br />
+		<span id="sport1"></span><br />
+		<span id="length"></span><br />
+		<span id="sentence"></span>
+		<br />
+	</body>
+</html>

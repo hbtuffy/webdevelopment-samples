@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			function dragStart(event) {
+				// get the dragged element ID
+				var dragId = event.target.id;
+				// store the dragged element ID into the dataTransfer object
+				event.dataTransfer.setData("dragId", dragId);
+			}
+			function drop(event) {
+				// get the drop element ID
+				var dropId = event.target.id;
+				// retrieve the dragged element ID from the dataTransfer object var dragId = event.dataTransfer.getData("dragId");
+				// display the message
+				var messageSpan = document.getElementById("message");
+				messageSpan.innerHTML = dragId + " " + dropId;
+			}
+			function dragOver(event) {
+				event.preventDefault();
+			}
+		</script>
+	</head>
+	<body>
+		<span id="hello" draggable="true" onDragStart="dragStart(event)"
+			>hello</span
+		>
+		<span id="hi" draggable="true" onDragStart="dragStart(event)">hi</span>
+		<span id="bonjour" draggable="true" onDragStart="dragStart(event)"
+			>bonjour</span
+		>
+		<span id="web" onDrop="drop(event)" onDragOver="dragOver(event)">web</span>
+		<span id="maze" onDrop="drop(event)" onDragOver="dragOver(event)"
+			>maze</span
+		>
+		<span id="earth" onDrop="drop(event)" onDragOver="dragOver(event)"
+			>earth</span
+		>
+	</body>
+</html>

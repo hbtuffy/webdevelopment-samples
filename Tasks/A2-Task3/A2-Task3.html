@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>A2-Task3</title>
+		<script>
+			//set a current position for the picture
+			var currentPicture = "bread";
+			//logical test according to the position
+			function changePicture() {
+				if (currentPicture == "bread") {
+					var flourDisplay = document.getElementById("displayedItem");
+					flourDisplay.src = "flour.jpg";
+					currentPicture = "flour";
+				} else if (currentPicture == "flour") {
+					var waterDisplay = document.getElementById("displayedItem");
+					waterDisplay.src = "water.jpg";
+					currentPicture = "water";
+				} else if (currentPicture == "water") {
+					var ovenDisplay = document.getElementById("displayedItem");
+					ovenDisplay.src = "oven.jpg";
+					currentPicture = "oven";
+				} else if (currentPicture == "oven") {
+					var breadDisplay = document.getElementById("displayedItem");
+					breadDisplay.src = "bread.jpg";
+					currentPicture = "bread";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<!-- display the image bread and change onmouseover-->
+		<img
+			id="displayedItem"
+			onmouseover="changePicture()"
+			src="bread.jpg"
+			alt=""
+		/>
+	</body>
+</html>

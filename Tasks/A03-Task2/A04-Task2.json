@@ -1,0 +1,34 @@
+{
+	"date": "31/12/2021",
+	"inventoryList": [
+		{
+			"building": "B01-Main",
+			"address": "5 Street23, Wollongong",
+			"inventory": [
+				{ "sn": "SerPE046", "description": "Main Server", "status": "OK" },
+				{
+					"sn": "PrHP02",
+					"description": "Printer (second floor)",
+					"status": "OK"
+				},
+				{
+					"sn": "L0123",
+					"description": "Laptop in stprage",
+					"status": "damaged"
+				}
+			]
+		},
+		{
+			"building": "B5",
+			"address": "32 Powell St, Bowral",
+			"inventory": [
+				{ "sn": "SerD23", "description": "Server", "status": "OK" },
+				{
+					"sn": "CoHP125",
+					"description": "Personal computer",
+					"status": "repair"
+				}
+			]
+		}
+	]
+}

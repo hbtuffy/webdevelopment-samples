@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>A2-Task4</title>
+
+		<style>
+			tr {
+				vertical-align: top;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Welcome to MyChoice</h1>
+
+		<!--create form-->
+		<form action="http://mychoice55.com/query" method="get">
+			<!--create table to get better structure-->
+			<table>
+				<!-- input of the restaurant -->
+				<tr>
+					<td>Restaurant</td>
+					<td>
+						<select name="rest" style="width: 228px">
+							<option value="1" selected="selected">MyTime-Wollongong</option>
+							<option value="2">PerfectDish-Kiama</option>
+							<option value="3">DinerOut-Buli</option>
+							<option value="4">SpotOn-Shellharbour</option>
+						</select>
+					</td>
+				</tr>
+				<!-- input of the name -->
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" style="width: 220px" name="name" /></td>
+				</tr>
+				<!-- input of the guest number -->
+				<tr>
+					<td>Number of Guests:</td>
+					<td>
+						<input type="text" style="width: 220px" min="1" name="num" />
+					</td>
+				</tr>
+				<!-- input of the phone -->
+				<tr>
+					<td>Phone:</td>
+					<td>
+						<input type="text" style="width: 220px" name="phone" />
+					</td>
+				</tr>
+				<!-- input of the email -->
+				<tr>
+					<td>Email:</td>
+					<td>
+						<input type="text" style="width: 220px" name="email" />
+					</td>
+				</tr>
+				<!-- input of the time slot -->
+				<tr>
+					<td>Prefered Time Slot:</td>
+					<td>
+						<input type="radio" name="time" value="e" />4-6 pm
+						<input type="radio" name="time" value="m" />6-8 pm
+						<input type="radio" name="time" value="l" />8-10 pm
+					</td>
+				</tr>
+				<!-- input of the special request -->
+				<tr>
+					<td>Special requirments:</td>
+					<td>
+						<textarea
+							placeholder="if any"
+							style="width: 220px"
+							name="req"
+						></textarea>
+					</td>
+				</tr>
+				<!-- input of the prefered communication method -->
+				<tr>
+					<td>Prefered communication:</td>
+					<td>
+						<input type="checkbox" checked="checked" name="note" value="SMS" />
+						SMS <input type="checkbox" name="note" value="EM" /> e-Mail
+						<input type="checkbox" name="note" value="SUB" /> Subscribe
+					</td>
+				</tr>
+				<tr style="height: 20px">
+					<td></td>
+					<td></td>
+				</tr>
+				<!-- submit and reset buttons -->
+				<tr>
+					<td></td>
+					<td style="text-align: right">
+						<input type="submit" value="Submit" />
+						<input type="reset" value="Reset" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			var itemCount = 0;
+			var totalPrice = 0;
+			function buy() {
+				var product = document.getElementById("productInput").value;
+				var quantity = Number(document.getElementById("quantityInput").value);
+				var price = Number(document.getElementById("priceInput").value);
+
+				var orderInfo = `${product} ${quantity} x $${price}`;
+				itemCount += quantity;
+				totalPrice += price * quantity;
+
+				var li = document.createElement("li");
+				var orderText = document.createTextNode(orderInfo);
+				li.appendChild(orderText);
+
+				var orderedList = document.getElementById("list");
+				orderedList.appendChild(li);
+
+				var msg = `Number of products: ${itemCount}, Total ammout: $${totalPrice}`;
+				var display = document.getElementById("displayTotal");
+				display.innerHTML = msg;
+			}
+		</script>
+	</head>
+	<body>
+		Product: <input type="text" id="productInput" /><br /><br />
+		Quantity: <input type="text" id="quantityInput" /><br /><br />
+		Price $: <input type="text" id="priceInput" /><br /><br />
+		<button onClick="buy()">BUY</button><br /><br />
+		<ol id="list"></ol>
+		<br />
+		<span id="displayTotal"></span>
+	</body>
+</html>

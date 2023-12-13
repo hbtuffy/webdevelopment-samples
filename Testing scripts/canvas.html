@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			function drawTriangle() {
+				var x1 = Number(document.getElementById("x1").value);
+				var x2 = Number(document.getElementById("x2").value);
+				var x3 = Number(document.getElementById("x3").value);
+				var y1 = Number(document.getElementById("y1").value);
+				var y2 = Number(document.getElementById("y2").value);
+				var y3 = Number(document.getElementById("y3").value);
+
+				var canvas = document.getElementById("canvas");
+				var context = canvas.getContext("2d");
+
+				context.beginPath();
+				context.moveTo(x1, y1);
+				context.lineTo(x2, y2);
+				context.lineTo(x3, y3);
+				context.closePath();
+				context.fillStyle = "pink";
+				context.fill();
+				context.strokeStyle = "purple";
+				context.linewidth = "3";
+				context.stroke();
+
+                var x1Edge = (x2+x3)/2
+                var y1Edge = (y2+y3)/2
+
+                context.beginPath()
+                context.moveTo(x1,y1);
+                context.lineTo(x1Edge,y1Edge)
+
+                context.strokeStyle="white"
+                context.linewidth = "3";
+				context.stroke();
+                
+                var x2Edge = (x1+x3)/2
+                var y2Edge = (y1+y3)/2
+
+                context.beginPath()
+                context.moveTo(x2,y2);
+                context.lineTo(x2Edge,y2Edge)
+
+                context.strokeStyle="white"
+                context.linewidth = "3";
+				context.stroke();
+
+                var x3Edge = (x2+x1)/2
+                var y3Edge = (y2+y1)/2
+
+                context.beginPath()
+                context.moveTo(x3,y3);
+                context.lineTo(x3Edge,y3Edge)
+
+                context.strokeStyle="white"
+                context.linewidth = "3";
+				context.stroke();
+			}
+		</script>
+	</head>
+	<body>
+		Enter coordinate for 1st point: X=<input type="text" id="x1" /> Y=<input
+			type="text"
+			id="y1"
+		/><br />
+		Enter coordinate for 2nd point: X=<input type="text" id="x2" /> Y=<input
+			type="text"
+			id="y2"
+		/><br />
+		Enter coordinate for 3rd point: X=<input type="text" id="x3" /> Y=<input
+			type="text"
+			id="y3"
+		/><br />
+		<br /><br />
+		<canvas
+			id="canvas"
+			width="1000"
+			height="600"
+			style="border: 2px dashed black"
+			>you broweser fucked</canvas
+		>
+		<br />
+		<button onClick="drawTriangle()">Draw Triangle</button>
+	</body>
+</html>

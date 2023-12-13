@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Smiling Faces</title>
+    <script>
+      // Global counter to count the numbe rof smiling faces
+      var counter = 0;
+
+      // Function for adding smiling faces
+      function add() {
+        // when the function is called, it will fill the division element of id="result" with smiling face
+        document.getElementById("result").innerHTML += "&#128512;";
+
+        // counter variable will be incremented by 1
+        counter++;
+
+        // When counter variable reaches 10, all smiling faces are deleted and reset and start to be displayed again from 1
+        if (counter == 10) {
+          document.getElementById("result").innerHTML = "";
+          counter = 0;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h2>&nbsp; &nbsp; &nbsp; &nbsp;Smiling Faces</h2>
+    <br />
+    <!-- onmouseover DOM method will execute a JavaScript when moving the mouse pointer onto an image -->
+    <img src="image.jpg" onmouseover="add()" /><br /><br />
+    <div id="result"></div>
+  </body>
+</html>

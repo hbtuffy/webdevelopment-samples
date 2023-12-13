@@ -1,0 +1,42 @@
+{
+	"date": "31/12/2021",
+	"inventoryList": [
+		{
+			"buildingName": "B01-main",
+			"address": "5 street23",
+			"inventory": [
+				{
+					"SN": "SerPE046",
+					"Desc": "main server",
+					"status": "ok"
+				},
+				{
+					"SN": "SerPE046",
+					"Desc": "main server",
+					"status": "ok"
+				},
+				{
+					"SN": "SerPE046",
+					"Desc": "main server",
+					"status": "ok"
+				}
+			]
+		},
+		{
+			"buildingName": "B01-main",
+			"address": "5 street23",
+			"inventory": [
+				{
+					"SN": "SerPE046",
+					"Desc": "main server",
+					"status": "ok"
+				},
+				{
+					"SN": "SerPE046",
+					"Desc": "main server",
+					"status": "ok"
+				}
+			]
+		}
+	]
+}

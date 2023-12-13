@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			var randomNumber;
+			
+			var increasedNumber = 0.5;
+			function calculator() {
+				increasedNumber += 0.5;
+				var listEmoji = ["&#128512", "&#128513", "&#128514"];
+				var randomEmoji = Math.floor(Math.random() * listEmoji.length);
+                console.log(randomEmoji)
+				var emoji = listEmoji[randomEmoji];
+
+				var calculation = `${randomNumber} * ${increasedNumber} = ${
+					randomNumber * increasedNumber
+				}${emoji}`;
+
+                var display=document.getElementById("displayTextArea");
+                display.innerHTML = calculation
+			}
+			var animationSchedule;
+			function startAnimation() {
+				animationSchedule = setInterval(calculator, 1000);
+				randomNumber = Math.floor(Math.random() * 90) + 10;
+                increasedNumber = 0.5;
+			}
+			function stopAnimation() {
+				clearInterval(animationSchedule);
+                
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Animation</h1>
+		<br />
+		<button onClick="startAnimation()">START</button>
+		<button onClick="stopAnimation()">STOP</button><br /><br />
+		<span id="displayTextArea"></span>
+	</body>
+</html>

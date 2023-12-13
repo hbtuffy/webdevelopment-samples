@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<inventoryList date="31/12/2021">
+    <building buildingName="B01-Main" address="5 Street23, Wollongong">
+        <inventory>
+            <sn>SerPE46</sn>
+            <description>Main Server</description>
+            <status>ok</status>
+        </inventory>
+        <inventory>
+            <sn>PrHP02</sn>
+            <description>Printer (second floor)</description>
+            <status>ok</status>
+        </inventory>
+        <inventory>
+            <sn>L0123</sn>
+            <description>Laptop in storage</description>
+            <status>damaged</status>
+        </inventory>
+    </building>
+    <building buildingName="B5" address="32 Powell St, Bowral">
+        <inventory>
+            <sn>SerD23</sn>
+            <description>Server</description>
+            <status>ok</status>
+        </inventory>
+        <inventory>
+            <sn>CoHP123 </sn>
+            <description>Personal computer</description>
+            <status>repair</status>
+        </inventory>
+    </building>
+</inventoryList>

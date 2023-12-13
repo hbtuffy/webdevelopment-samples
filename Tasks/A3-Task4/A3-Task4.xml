@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<storageRooms address="52 Some Street,NSW 2500" nextRevision="20/12/2022" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="A3-Task4.xsd">
+    <inventory>
+        <code>INV-552</code>
+        <noItems>2</noItems>
+        <status>Replaced</status>
+    </inventory>
+    <inventory>
+        <code>RCE-1236</code>
+        <noItems>7</noItems>
+        <status>Operational</status>
+    </inventory>
+</storageRooms>

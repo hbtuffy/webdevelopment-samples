@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>exercise</title>
+    
+    <script>
+      var slideshowAnimation;
+	  var animOn = false;
+	  var index = 0;
+	   // list of images for the slideshow animation
+      var IMAGE_LIST = [
+        "images/square.png",
+        "images/rectangle.png",
+        "images/kite.png",
+        "images/parallelogram.png",
+        "images/trapezium.png",
+        "images/rhombus.png"
+      ];
+      
+      function startAnimation()
+      {
+		if (!animOn) {
+			// start the slideshow animation
+			slideshowAnimation = setInterval(showImage, 1200);
+			animOn = true;
+		}
+      }
+      
+      function showImage()
+      {
+        // show the image
+        var imgElement = document.getElementById("imageHolder");
+        imgElement.src = IMAGE_LIST[index];
+		index++;
+		if (index == IMAGE_LIST.length)
+			index = 0;
+      }
+      
+      function stopAnimation()
+      {
+		if (animOn) {
+			clearInterval(slideshowAnimation);
+			index = 0;
+			animOn = false;
+		}
+      }
+    </script>
+  </head>
+  
+  <body>
+  
+    <button onClick="startAnimation()">
+      Start Slideshow
+    </button>
+    <button onClick="stopAnimation()">
+      Stop Slideshow
+    </button>
+    <br /><br />
+
+    <img id="imageHolder" height="250px" />
+    
+  </body>
+</html>

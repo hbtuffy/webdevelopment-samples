@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script>
+			count = 1;
+			function counter() {
+				var counterDisplay = document.getElementById("spanDisplay");
+				counterDisplay.innerHTML = count;
+				count += 1;
+			}
+			var animationPosition = false;
+			var animationSchedule;
+			function startAnimation() {
+				if (animationPosition == false) {
+					animationPosition = true;
+					animationSchedule = setInterval(counter, 1000);
+				}
+			}
+			function stopAnimation() {
+				if (animationPosition == true) {
+					animationPosition = false;
+					clearInterval(animationSchedule);
+                    count=0
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="startAnimation()">Increase counter</button> <br /><br />
+		<button onclick="stopAnimation()">Stop counter</button> <br /><br />
+		<span id="spanDisplay">0</span>
+	</body>
+</html>

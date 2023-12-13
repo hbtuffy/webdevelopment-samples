@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+        <script>
+            function displayMsg(){
+                var university = document.getElementById("university").value;
+                var course=document.getElementById("course").value;
+                var similarCourse=document.getElementById("similarCourse").checked;
+                var msg;
+                if(similarCourse==true){
+                    msg = `We will search for ${course} and similar courses at the ${university}`
+                }else{
+                    msg = `We will search for the ${course} at the ${university}`
+                }
+
+                var displayMsg = document.getElementById("displayMsg")
+                displayMsg.innerHTML = msg
+
+            }
+
+        </script>
+	</head>
+	<body>
+		<h1>Search page</h1>
+		<br />
+		University: <input type="text" id="university" /><br /><br />
+		Course: <input type="text" id="course" /><br /><br />
+		<input type="checkbox" id="similarCourse" /> search similar courses<br /><br />
+		<button onClick="displayMsg()">Search</button><br /><br />
+        <span id="displayMsg"></span>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+
+  <head>
+    <title>Exercise</title>
+
+    <script>
+
+      var counter = 0;
+      var animationOn = false; // we need this, so only one animation can run at one time
+      var counterAnimation;
+
+      function updateCounter()
+      {
+        // update the counter value
+        counter = counter + 1;
+
+        // show the counter
+        var counterSpan = document.getElementById("counterHolder");
+        counterSpan.innerHTML = counter;
+      }
+
+      function startCounterAnimation()
+      {
+        if(!animationOn)
+        {
+          animationOn = true; 		
+		  //if we want to reset the counter at every animation then we will need the following code
+		  counter = 0;
+		  document.getElementById("counterHolder").innerHTML = counter;
+
+          counterAnimation = setInterval(updateCounter, 1000);
+        }
+      }
+
+      function stopCounterAnimation()
+      {
+        if(animationOn)
+        {
+          animationOn = false;
+
+          clearInterval(counterAnimation);
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+
+    <button onClick="startCounterAnimation();">
+      Start counter animation
+    </button>
+
+    <button onClick="stopCounterAnimation();">
+      Stop counter animation
+    </button>
+
+    <br /><br />
+
+    <span id="counterHolder">0</span>
+
+  </body>
+
+</html>

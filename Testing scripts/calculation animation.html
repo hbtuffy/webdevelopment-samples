@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Document</title>
+	</head>
+	<script>
+        var randomNumber = Math.floor(Math.random() * 900) + 100;
+		var increasedNumber = -10;
+		function calculation() {
+			increasedNumber += 10;
+			var operation = `${randomNumber} + ${increasedNumber} = ${
+				randomNumber + increasedNumber
+			}`;
+
+			var display = document.getElementById("displayTextArea");
+			display.innerHTML = operation;
+		}
+		var animationSchedule;
+		function startAnimation() {
+			animationSchedule = setInterval(calculation, 500);
+            
+			
+		}
+		function stopAnimation() {
+			clearInterval(animationSchedule);
+            randomNumber = Math.floor(Math.random() * 900) + 100;
+            increasedNumber = -10;
+		}
+	</script>
+	<body>
+		<h1>Animation</h1>
+
+		<button onClick="startAnimation()">Start</button>
+		<button onClick="stopAnimation()">Stop</button> <br />
+		<span id="displayTextArea"></span>
+	</body>
+</html>

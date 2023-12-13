@@ -1,0 +1,18 @@
+{
+	"date": "20/05/2021",
+	"players": [
+		{
+			"playerID": "23685",
+			"name": "Bella Brown",
+			"games": [
+				{ "time": "10.00", "oponent": "Will Don" },
+				{ "time": "16.00", "oponent": "Wilma Greg" }
+			]
+		},
+		{
+			"playerID": "9865",
+			"name": "Jo White",
+			"games": [{ "time": "12.00", "oponent": "Tim Path" }]
+		}
+	]
+}

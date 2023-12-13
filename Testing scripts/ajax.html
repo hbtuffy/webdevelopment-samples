@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script>
+			function makeAjaxQuery() {
+				// create an XMLHttpRequest
+				var xhttp = new XMLHttpRequest();
+				// create a handler for the readyState change
+				xhttp.onreadystatechange = function () {
+					readyStateChangeHandler(xhttp);
+				};
+				// get JSON file by making async call
+				xhttp.open("GET", "faculty.json", true);
+				xhttp.send();
+			}
+			// handler for the readyState change
+			function readyStateChangeHandler(xhttp) {
+				if (xhttp.readyState == 4) {
+					// readyState = 4 means DONE
+					if (xhttp.status == 200) {
+						// status = 200 means OK
+						handleStatusSuccess(xhttp);
+					} else {
+						// status is NOT OK
+						handleStatusFailure(xhttp);
+					}
+				}
+			}
+			// XMLHttpRequest failed
+			function handleStatusFailure(xhttp) {
+				// display error message
+				var displayDiv = document.getElementById("display");
+				displayDiv.innerHTML = "XMLHttpRequest failed: status " + xhttp.status;
+			}
+			// XMLHttpRequest success
+			function handleStatusSuccess(xhttp) {
+				var jsonText = xhttp.responseText;
+				// parse the json into an object
+				var Obj = JSON.parse(jsonText);
+				// display the object on the page
+				display(Obj);
+			}
+			function display(Obj) {
+				// construct HTML code to display weather information
+				html = `<b>Name: </b> ${Obj.name}`;
+                html += `<br>Abbreviation: </b> ${Obj.abbreviation} `
+                html += `<br>Email: </b> ${Obj.email} `
+                html += `<br>Website:</b> ${Obj.web} `
+
+				var display = document.getElementById("display");
+				display.innerHTML = html;
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="makeAjaxQuery()">Get faculty details</button><br /><br />
+		<div id="display"></div>
+	</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Equation</title>
+		<style>
+			span {
+				font-size: 30px;
+			}
+		</style>
+		<script>
+			// get random list item from given list
+			function getRandomIcon(iconList) {
+				return iconList[Math.floor(Math.random() * iconList.length)];
+			}
+			//generate random number
+			var randomNumber = Math.floor(Math.random() * 1000);
+
+			var operetorSymbol = "*";
+			//store the number to multiplecity
+			var multiplyNumber = 0.5;
+			var equalitySymbol = "=";
+			//define the result empty to calculate later
+			var result = "";
+			//calculation funtion for the animation
+			function calculation() {
+				var resultDisplay = document.getElementById("resultDisplay");
+				//increase the multiply number
+				multiplyNumber = multiplyNumber + 0.5;
+				//find the result
+				result = multiplyNumber * randomNumber;
+				//display the calculation
+				resultDisplay.innerHTML = `${randomNumber} ${operetorSymbol} ${multiplyNumber} ${equalitySymbol} ${result} ${getRandomIcon(
+					["&#127772", "&#127774", "&#127775", "&#128171"]
+				)}`;
+			}
+			//start the animation and set a boolean point in case of multple click on buttons
+			var animationOn = false;
+			var calculationAnimation;
+			function startCalculationAnimation() {
+				if (animationOn == false) {
+					animationOn = true;
+					calculationAnimation = setInterval(calculation, 1000);
+				}
+			}
+			//stop the function
+			function stopCalculationAnimation() {
+				if (animationOn == true) {
+					animationOn = false;
+					clearInterval(calculationAnimation);
+				}
+				//set new number if user click start again before refresh the page
+				randomNumber = Math.floor(Math.random() * 1000);
+				multiplyNumber = 0.5;
+			}
+		</script>
+	</head>
+	<body>
+		<!--header-->
+		<h1>Animation</h1>
+		<!--buttons-->
+		<button onclick="startCalculationAnimation()">Start</button>&nbsp;<button
+			onclick="stopCalculationAnimation()"
+		>
+			Stop
+		</button>
+		<br /><br />
+		<!--display the result-->
+		<span id="resultDisplay"></span>
+	</body>
+</html>

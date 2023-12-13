@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			var itemCount = 0;
+			var totalPrice = 0;
+			function addProduct() {
+				var product = document.getElementById("productInput").value;
+				var quantity = Number(document.getElementById("quantityInput").value);
+				var price = Number(document.getElementById("priceInput").value);
+
+				var orderInfo = `${product} ${quantity} x $${price}`;
+
+				itemCount = itemCount + 1;
+				totalPrice = totalPrice + price * quantity;
+
+				var li = document.createElement("li");
+				var orderText = document.createTextNode(orderInfo);
+				li.appendChild(orderText);
+
+				var orderOl = document.getElementById("shoppingList");
+				orderOl.appendChild(li);
+
+				var itemCountSpan = document.getElementById("itemCountHolder");
+				itemCountSpan.innerHTML = `Number of products:${itemCount}, Total ammount: $${totalPrice}`;
+			}
+		</script>
+	</head>
+	<body>
+		Product: <input type="text" id="productInput" /> <br /><br />
+		quantity: <input type="text" id="quantityInput" /> <br /><br />
+		price $: <input type="text" id="priceInput" /><br /><br />
+		<button onclick="addProduct()">BUY</button> <br /><br />
+		<ol id="shoppingList"></ol>
+		<span id="itemCountHolder"></span>
+	</body>
+</html>

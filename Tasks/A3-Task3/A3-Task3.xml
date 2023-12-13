@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE receipt[
+    <!ELEMENT receipt (products*)>
+    <!ATTLIST receipt number CDATA #REQUIRED>
+    <!ATTLIST receipt date CDATA #REQUIRED>
+    <!ELEMENT products (description,quantity,amount)>
+    <!ELEMENT description (#PCDATA)>
+    <!ELEMENT quantity (#PCDATA)>
+    <!ELEMENT amount (#PCDATA)>
+]>
+
+<receipt number="113654" date="15/03/2022">
+    <products>
+        <description>Milk</description>
+        <quantity>2</quantity>
+        <amount>7.20</amount>
+    </products>
+    <products>
+        <description>Chicken tenders</description>
+        <quantity>5</quantity>
+        <amount>25.75</amount>
+    </products>
+</receipt>

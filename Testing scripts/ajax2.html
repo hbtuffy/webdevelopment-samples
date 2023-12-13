@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script>
+			function makeAjaxQuery() {
+				// create an XMLHttpRequest
+				var xhttp = new XMLHttpRequest();
+				// create a handler for the readyState change
+				xhttp.onreadystatechange = function () {
+					readyStateChangeHandler(xhttp);
+				};
+				// get JSON file by making async call
+				xhttp.open("GET", "airport.json", true);
+				xhttp.send();
+			}
+			// handler for the readyState change
+			function readyStateChangeHandler(xhttp) {
+				if (xhttp.readyState == 4) {
+					// readyState = 4 means DONE
+					if (xhttp.status == 200) {
+						// status = 200 means OK
+						handleStatusSuccess(xhttp);
+					} else {
+						// status is NOT OK
+						handleStatusFailure(xhttp);
+					}
+				}
+			}
+			// XMLHttpRequest failed
+			function handleStatusFailure(xhttp) {
+				// display error message
+				var displayDiv = document.getElementById("display");
+				displayDiv.innerHTML = "XMLHttpRequest failed: status " + xhttp.status;
+			}
+			// XMLHttpRequest success
+			function handleStatusSuccess(xhttp) {
+				var jsonText = xhttp.responseText;
+				// parse the json into an object
+				var Obj = JSON.parse(jsonText);
+				// display the object on the page
+				display(Obj);
+			}
+			function display(Obj) {
+				// construct HTML code to display weather information
+				var html = `<b>Search Query:</b> ${Obj.searchQuery} <br/><br/>`;
+				html += `<table border="1px">`;
+				html += `<tr>`;
+				html += `<th>Airport</th>`;
+				html += `<th>ICAO</th>`;
+				html += `<th>IATA</th>`;
+				html += `<th>Location</th>`;
+				html += `</tr>`;
+				for (var i = 0; i < Obj.searchResult.length; i++) {
+					var itemObj = Obj.searchResult[i];
+					html += `<tr>`;
+					html += `<td>${itemObj.airportName}</td>`;
+					html += `<td>${itemObj.ICAO}</td>`;
+					html += `<td>${itemObj.IATA}</td>`;
+					html += `<td>${itemObj.city}, ${itemObj.country}</td>`;
+					html += `</tr>`;
+				}
+
+				var display = document.getElementById("display");
+				display.innerHTML = html;
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="makeAjaxQuery()">Search Airport</button><br /><br />
+		<div id="display"></div>
+	</body>
+</html>
